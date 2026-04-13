@@ -6,7 +6,7 @@ local LocalPlayer = Players.LocalPlayer
 
 --- SYSTEME DE WHITELIST ---
 local WhitelistedUsers = {
-    "sadowyoni_yt",
+    "sadowyoni_ytb", -- Ton pseudo unique
 }
 
 local function isWhitelisted(player)
@@ -16,13 +16,13 @@ local function isWhitelisted(player)
     return false
 end
 
--- Kick immédiat si non autorisé
+-- Sécurité : Kick si le joueur n'est pas autorisé
 if not isWhitelisted(LocalPlayer) then
     LocalPlayer:Kick("\n\nMoonHub\nyou are not whitelisted")
     return 
 end
 
---- CONFIGURATION ---
+--- CONFIGURATION (SAUVEGARDE LOCALE) ---
 local filename = "MoonLoader_Config.json"
 local config = { bind = "V" }
 
@@ -38,7 +38,7 @@ local function loadConfig()
 end
 loadConfig()
 
---- SERVER HOP LOGIC ---
+--- LOGIQUE DU SERVER HOP ---
 local function doServerHop()
     local success, result = pcall(function()
         return HttpService:JSONDecode(game:HttpGet("https://games.roblox.com/v1/games/" .. game.PlaceId .. "/servers/Public?sortOrder=Asc&limit=100"))
@@ -58,7 +58,7 @@ end
 local ScreenGui = Instance.new("ScreenGui")
 ScreenGui.Name = "MoonLoader_V10"
 ScreenGui.Parent = game:GetService("CoreGui")
-ScreenGui.Enabled = false 
+ScreenGui.Enabled = false -- Menu caché par défaut (appuie sur K)
 
 local Main = Instance.new("Frame")
 Main.Size = UDim2.new(0, 260, 0, 170)
@@ -105,49 +105,4 @@ local function createBtn(text, color)
     btn.TextColor3 = Color3.fromRGB(255, 255, 255)
     btn.Font = Enum.Font.GothamSemibold
     btn.TextSize = 12
-    Instance.new("UICorner", btn).CornerRadius = UDim.new(0, 6)
-    return btn
-end
-
-local HopBtn = createBtn("CHANGE SERVER", Color3.fromRGB(25, 25, 35))
-local BindBtn = createBtn("KEYBIND : " .. config.bind, Color3.fromRGB(0, 100, 200))
-
---- LOGIQUE DES TOUCHES ---
-local listening = false
-
-HopBtn.MouseButton1Click:Connect(doServerHop)
-
-BindBtn.MouseButton1Click:Connect(function()
-    listening = true
-    BindBtn.Text = "..."
-    BindBtn.BackgroundColor3 = Color3.fromRGB(200, 100, 0)
-end)
-
-UserInputService.InputBegan:Connect(function(input, gpe)
-    -- Toggle UI (K)
-    if input.KeyCode == Enum.KeyCode.K and not gpe then
-        ScreenGui.Enabled = not ScreenGui.Enabled
-    end
-
-    -- Changement Keybind
-    if listening then
-        if input.UserInputType == Enum.UserInputType.Keyboard then
-            config.bind = input.KeyCode.Name
-            saveConfig()
-            BindBtn.Text = "KEYBIND : " .. config.bind
-            BindBtn.BackgroundColor3 = Color3.fromRGB(0, 100, 200)
-            listening = false
-        end
-    elseif not gpe then
-        -- Action de TP via Keybind
-        if input.KeyCode == Enum.KeyCode[config.bind] then
-            doServerHop()
-        end
-    end
-end)
-
--- Dragging
-local dragging, dragStart, startPos
-Main.InputBegan:Connect(function(i) if i.UserInputType == Enum.UserInputType.MouseButton1 then dragging = true dragStart = i.Position startPos = Main.Position end end)
-UserInputService.InputChanged:Connect(function(i) if dragging and i.UserInputType == Enum.UserInputType.MouseMovement then local delta = i.Position - dragStart Main.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y) end end)
-UserInputService.InputEnded:Connect(function(i) if i.UserInputType == Enum.UserInputType.MouseButton1 then dragging = false end end)
+    Instance.
