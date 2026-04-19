@@ -1,8 +1,8 @@
 -- [[ MOONHUB WHITELIST SYSTEM ]] --
 
 local whitelist = {
-    ["sadowyoni_ytb"] = true,
-    -- ["Pseudo_Supplementaire"] = true,
+    ["LaFrenchCrousty_9310"] = true,
+    -- ["La French Crousty"] = true,
 }
 
 local player = game:GetService("Players").LocalPlayer
